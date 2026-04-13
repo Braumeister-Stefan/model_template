@@ -1,6 +1,6 @@
 # model_template
 
-A reusable Python project template. Copy this repo and replace the placeholder components with your own logic.
+My reusable Python project template.  
 
 ## Structure
 
@@ -24,6 +24,7 @@ model_template/
 1. `main.py` defines a `config` dict (paths, parameters) and calls `Model(config).run()`.
 2. `Model.run()` in `model.py` calls each component in order: Loader → Processor → Outputter.
 3. All logic lives in `model_components/`. Add or rename components there as needed.
+4.  New functions in a model_component should always be called either in another function in the model_components class, in the run() function or not at all (e.g. for sporadic testing /not used functions)
 
 ## Usage
 
@@ -36,8 +37,3 @@ python main.py
 1. Create `model_components/mycomponent.py` with a class and a `run()` method.
 2. Import and instantiate it in `model.py`.
 3. Call `self.mycomponent.run(...)` inside `Model.run()`.
-
-## Secrets
-
-Copy `secrets/.env.example` to `secrets/.env` and fill in real values.  
-The `.gitignore` inside `secrets/` prevents `.env` files from being committed.
